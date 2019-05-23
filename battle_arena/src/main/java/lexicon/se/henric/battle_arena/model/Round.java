@@ -2,7 +2,7 @@ package lexicon.se.henric.battle_arena.model;
 
 import java.util.Random;
 
-public class BattleRoundRoll {
+public class Round {
 
 	
 	private static Random rand = new Random();
@@ -18,5 +18,5 @@ public class BattleRoundRoll {
 		return rand.nextInt((max - min) + 1) + min;
 	}
 
-	}
+	
 }
