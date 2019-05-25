@@ -3,30 +3,20 @@ package lexicon.se.henric.battle_arena.model;
 
 public class BattleLog {
 
-	private Battle round;
-	private int BattleID;
-	private Character player;
+/*	private Battle battle;
+//	private int BattleID;
+	private Player player;
 	private Character opponent;
-	private Round playerRoll;
-	private Round opponentRoll;
 	private Character roundWinner;
 	boolean roundIsDraw;
-	boolean isFinalRound;
+	boolean isFinalRound; */
 	
 	
 	
 	
-	public BattleLog(Battle round) {
+	public BattleLog(Battle battle) {
 
-		/*this.round = round;
-		this.BattleID = round.getBattleID();
-		this.player = round.getPlayer();
-		this.opponent = round.getOpponent();
-		this.playerRoll = round.getPlayerRoll();
-		this.opponentRoll = round.getOpponentRoll();
-		this.roundWinner = round.getRoundWinner();
-		this.roundIsDraw = round.getisRoundIsDraw();
-		this.isFinalRound = round.isFinalRound(); */
+		
 	}
 
 
