@@ -3,23 +3,27 @@ package lexicon.se.henric.battle_arena.model;
 
 public class BattleLog {
 
-/*	private Battle battle;
-//	private int BattleID;
-	private Player player;
-	private Character opponent;
-	private Character roundWinner;
-	boolean roundIsDraw;
-	boolean isFinalRound; */
-	
-	
-	
+
+	private Battle battle;
 	
 	public BattleLog(Battle battle) {
-
 		
+		setBattle(battle);
 	}
 
+	public Battle getBattle() {
+		return battle;
+	}
 
+	private void setBattle(Battle battle) {
+		this.battle = battle;
+	}
+
+	@Override
+	public String toString() {
+		
+		return battle.toString();
+	}
 	
 	
 }

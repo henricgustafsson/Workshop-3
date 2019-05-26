@@ -1,26 +1,33 @@
 package lexicon.se.henric.battle_arena.model;
 
+import lexicon.se.henric.battle_arena.App;
+
 public class Character {
 
 	
-	private static double STANDARD_STRENGTH=10;
-	
-	private static double STANDARD_HEALTH =100; 
 	private double strength;
 	private double health;	
 	private String characterName;
 	private boolean isDead;
 	
+	/** Constructor taking one parameter
+	 * @param String characterName
+	 */
 	public Character(String characterName) {
-		setCharachterName(characterName); 
-		//sets the field strength of the character to a standard value
-		setStrength(STANDARD_STRENGTH);
-		//sets the field health of the character to a standard value
-		setStrength(STANDARD_STRENGTH);
+		setCharacterName(characterName); 
+		//sets the field strength of the character to a random value
+		setStrength(App.getRandomNumber(1, 10));
+		//sets the field health of the character to a random value
+		setHealth(App.getRandomNumber(1, 10));
 	}
 	
+	/** Constructor taking 3 parameters
+	 * @param String characterName
+	 * @param double strength
+	 * @param double health
+	 */
 	public Character(String characterName, double strength, double health) {
-		setCharachterName(characterName); 
+		setCharacterName(characterName); 
 		//sets the field strength of the character to a standard value
 		setStrength(strength);
 		//sets the field health of the character to a standard value
@@ -66,22 +73,38 @@ public class Character {
 	/** Set method for field strength
 	 * @return void
 	 */
-	private void setCharachterName(String characterName) {
+	private void setCharacterName(String characterName) {
 		this.characterName = characterName;
 	}
 	
+	/** Check if character is dead by determining if health is greater than 0
+	 * and set field isDead to true if dead else false
+	 * @return boolean isDead
+	 */
 	public boolean isDead() {
 		
 		this.isDead = health > 0 ? true : false;
 		return isDead;
 	}
 	
+	/** set field health to param damage
+	 * @param double damage
+	 */
 	public void takeDamage(double damage) {
 		health -= damage;
 	}
 
+	/** add param addedStrength to field strength
+	 * @param double addedStrength
+	 */
 	public void addStrength(double addedStrength) {
 		setStrength(strength+addedStrength);
+	}
+	
+	@Override
+	public String toString() {
+		
+		return "Health: " + getHealth() + "Strength" + getStrength();
 	}
 
 }

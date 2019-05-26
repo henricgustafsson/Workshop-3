@@ -28,8 +28,7 @@ public class Player extends Character{
 		battleLogs.add(log);
 	}
 	
-	
-	 
+	// TODO: private int getNumberOfBattle
 	
 	
 	
