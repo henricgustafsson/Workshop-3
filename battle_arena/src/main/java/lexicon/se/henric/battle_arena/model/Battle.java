@@ -12,7 +12,6 @@ public class Battle {
 	private Player player;
 	private Character opponent;
 	private RomanNameGenerator romanNameGenerator;
-	private BattleLog log;
 	private Character battleWinner;
 
 
@@ -53,12 +52,8 @@ public class Battle {
 				Round round = startRound();
 				//add round to list of rounds
 				rounds.add(round);
-			} while (!player.isDead() || opponent.isDead());
+			} while (!player.isDead() && !opponent.isDead());
 			
-			//if the battle is over, save the battle to log
-			setLog(new BattleLog(this));
-			//add log to players arrayList of logs
-			player.addBattleLog(log);
 			
 			Character winner = determineWinner();
 			setBattleWinner(winner);
@@ -127,24 +122,6 @@ public class Battle {
 		this.battleWinner = battleWinner;
 	}
 
-	
-	/** getter for field log
-	 * @return BattleLog log
-	 */
-	public BattleLog getLog() {
-		return log;
-	}
-
-
-	/** setter for field log
-	 * @param BattleLog log
-	 */
-	public void setLog(BattleLog log) {
-		this.log = log;
-	}
-	
-		
-	
 	
 	/**
 	 *

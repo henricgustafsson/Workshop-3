@@ -3,6 +3,7 @@ package lexicon.se.henric.battle_arena;
 
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -16,6 +17,7 @@ public class CharacterTest {
 	private static final String name = "Charizard";
 	private static final double strength = 5;
 	private static final double health = 100;
+	
 	@Before
 	public void init() {
 		
@@ -59,9 +61,15 @@ public class CharacterTest {
 	}
 	
 	@Test
-	public void testIsDead() {
+	public void testIsDeadWhenHealthIsZero() {
 		testCharacter.takeDamage(health);
 		assertTrue(testCharacter.isDead());
+	}
+	
+	@Test
+	public void testIsDeadWhenHealthIsGreaterThanZero() {
+		testCharacter.takeDamage(1);
+		assertFalse(testCharacter.isDead());
 	}
 	
 	@Test

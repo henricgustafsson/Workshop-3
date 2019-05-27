@@ -10,16 +10,24 @@ public class Character {
 	private String characterName;
 	private boolean isDead;
 	
-	/** Constructor taking one parameter
+	
+	
+	public Character(String characterName) {
+		//setCharacterName(characterName); 
+		//sets the field strength of the character to a random value
+		//sets the field health of the character to a random value
+		this(characterName,App.getRandomNumber(1, 10));
+	}
+	/** Constructor taking two parameter
 	 * @param String characterName
 	 */
-	public Character(String characterName) {
-		setCharacterName(characterName); 
+	public Character(String characterName, double strength) {
+		//setCharacterName(characterName); 
 		//sets the field strength of the character to a random value
-		setStrength(App.getRandomNumber(1, 10));
 		//sets the field health of the character to a random value
-		setHealth(App.getRandomNumber(1, 10));
+		this(characterName,strength,App.getRandomNumber(1, 10));
 	}
+	
 	
 	/** Constructor taking 3 parameters
 	 * @param String characterName
