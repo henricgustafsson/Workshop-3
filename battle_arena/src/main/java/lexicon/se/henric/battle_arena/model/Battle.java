@@ -52,10 +52,16 @@ public class Battle {
 				Round round = startRound();
 				//add round to list of rounds
 				rounds.add(round);
-			} while (!player.isDead() && !opponent.isDead());
+			} while (!player.isDead());
 			
 			
 			Character winner = determineWinner();
+			//if the winning character is an instance of player
+			//the player has won. Count up field battlesWon
+			//using addToBattlesWon method
+			if(winner instanceof Player) {
+				((Player) winner).addToBattlesWon();
+			}
 			setBattleWinner(winner);
 	}
 	
@@ -132,16 +138,16 @@ public class Battle {
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append("Player Name: "+player.getCharacterName());
 		stringBuilder.append("\nOpponent Name: "+opponent.getCharacterName());
-		stringBuilder.append("nBattle Winner: " + getBattleWinner());		
-		int i =0;
-		while (i >rounds.size()) {
+		stringBuilder.append("\nBattle Winner: " + getBattleWinner().getCharacterName());		
+		/*int i =0;
+		while (i <rounds.size()) {
 			
 			Round round = rounds.get(i);
 			
-			stringBuilder.append("Round "+i+"\n");
+			stringBuilder.append("Round "+i+1+"\n");
 			stringBuilder.append(round.toString());
-			
-		}
+			++i;
+		} */
 		
 		return stringBuilder.toString();
 	}

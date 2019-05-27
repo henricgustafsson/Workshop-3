@@ -80,6 +80,36 @@ public class PlayerTest {
 		assertEquals(ExpectedString,testPlayer.toString());
 	}
 	
+	@Test
+	public void testAddToBattlesWon() {
+		testPlayer.addToBattlesWon();
+		
+		assertEquals(testPlayer.getBattlesWon(),1);
+	}
+	
+	@Test
+	public void testCalculateScoreWhenAlive() {
+		//add two won battles = 2*100 points
+		testPlayer.addToBattlesWon();
+		testPlayer.addToBattlesWon();
+		//since testplayer is alive an additional 200 is added
+		int expected = 400;
+		assertEquals(expected, testPlayer.calculateScore());	
+		
+	}
+	
+	@Test
+	public void testCalculateScoreWhenDead() {
+		//add two won battles = 2*100 points
+		testPlayer.addToBattlesWon();
+		testPlayer.addToBattlesWon();
+		//damage player to death no bonus for being alive
+		testPlayer.takeDamage(health);
+		int expected = 200;
+		assertEquals(expected, testPlayer.calculateScore());
+		
+		
+	}
 	
 
 }

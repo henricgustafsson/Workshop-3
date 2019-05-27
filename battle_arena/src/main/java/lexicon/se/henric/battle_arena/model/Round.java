@@ -179,7 +179,7 @@ public class Round {
 		
 		stringBuilder.append("Player Rolled: "+ getPlayerRoll());
 		stringBuilder.append("\nOpponent Rolled: "+getOpponentRoll());
-		stringBuilder.append("\nRound Winner: " + getRollWinner());
+		stringBuilder.append("\nRound Winner: " + getRollWinner().getCharacterName());
 		
 		return stringBuilder.toString();
 	}

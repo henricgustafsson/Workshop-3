@@ -90,7 +90,6 @@ public class Character {
 	 * @return boolean isDead
 	 */
 	public boolean isDead() {
-		System.out.println(health);
 		this.isDead = health <= 0 ? true : false;
 		return isDead;
 	}
@@ -109,10 +108,6 @@ public class Character {
 		setStrength(strength+addedStrength);
 	}
 	
-	@Override
-	public String toString() {
-		
-		return "Health: " + getHealth() + "\nStrength" + getStrength();
-	}
+	
 
 }

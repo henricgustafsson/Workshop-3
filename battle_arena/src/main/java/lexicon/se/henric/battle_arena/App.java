@@ -1,51 +1,37 @@
 package lexicon.se.henric.battle_arena;
 
 import java.util.Random;
+import java.util.Scanner;
 
-//import lexicon.se.henric.battle_arena.model.BattleLog;
+import lexicon.se.henric.battle_arena.model.Battle;
+import lexicon.se.henric.battle_arena.model.Player;
 
-/**
- * Required Features:
-• The player should be able to create his character, give it a name, and
-assign it attribute values.
-• The game should randomly create opponents for the player to fight until
-the player character dies or retires.
-• When the player character dies or retires, the game should assign a score
-to the player based on how many fights their character survived, and
-whether they are still alive or not.
-Optional:
-• Add in arena variety, giving bonuses and penalties based on gear and
-other factors. Which one ends up being used should be random.
-• When the player is victorious, award them with in-game currency, which
-can be spent on upgrading their gear, increasing their statistics.
-• A log of each battle should be stored, and be made available to the player
-at the end of the game.
- *
- */
+
 public class App 
 {
 	
 	
-	
-	private static Random rand = new Random();
-	//private BattleLog log; TODO: implement main and see if need field log	
+	public static final Scanner scanner = new Scanner(System.in);
+	private static final Random rand = new Random();
+	private static Battle battle;
     public static void main( String[] args )
     {
+    	System.out.println("Enter Name:");
+    	String playerName = scanner.nextLine();
+    	System.out.println("Enter health:");
+    	int health = scanner.nextInt();
+    	scanner.nextLine();
+    	System.out.println("Enter Strength:");
+    	int strength = scanner.nextInt();
+    	scanner.nextLine();
+    	Player player = new Player(playerName,strength,health);
+    	do {
+			
+    		battle = new Battle(player);
+    		
+		} while (!player.isDead());
     	
-    	//1.ask for name of player
-    	//	and create new fighter with name given by user input
-    	//2.get a random name and create new fighter <==========================
-    	//																		||
-    	//new round																||
-    	//3.start a new round 						<=======================	||
-    	//4.print state of players											||	||
-    	//5.add a random modifier to player strength						||	||
-    	//6.compare player strenghts 										||	||
-    	//7.Damage the looser                                               ||	||
-    	//8.If opponent is dead, round is over, otherwise go to #3. =========	||
-    	//9.Is the player dead?													||
-    	//10. Ask if continue if y go to #2 ======================================
-    	
+    	System.out.println(battle.toString());
     	
     }
     
