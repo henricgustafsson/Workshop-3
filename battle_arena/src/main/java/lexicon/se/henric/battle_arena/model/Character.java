@@ -53,14 +53,14 @@ public class Character {
 	 * @return double health - field health
 	 */
 	public double getHealth() {
-		 return strength;
+		 return health;
 	}
 	
 	/** Set method for field health
 	 * @return void
 	 */
-	private void setHealth(double strength) {
-		this.strength = strength;
+	private void setHealth(double health) {
+		this.health = health;
 	}
 	
 	/** Get method for field characterName
@@ -82,8 +82,8 @@ public class Character {
 	 * @return boolean isDead
 	 */
 	public boolean isDead() {
-		
-		this.isDead = health > 0 ? true : false;
+		System.out.println(health);
+		this.isDead = health <= 0 ? true : false;
 		return isDead;
 	}
 	
@@ -104,7 +104,7 @@ public class Character {
 	@Override
 	public String toString() {
 		
-		return "Health: " + getHealth() + "Strength" + getStrength();
+		return "Health: " + getHealth() + "\nStrength" + getStrength();
 	}
 
 }

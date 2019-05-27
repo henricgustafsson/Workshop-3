@@ -62,9 +62,10 @@ public class Round {
 	 * @return Character player
 	 */
 	private Character determineRoundWinner(Character fighterToTakeDamage) {
-		//if the character of the looser is equal to players name
+		//if the character of the looser is an instance of Player
 		//return opponent, else vice versa
-		return (fighterToTakeDamage.getCharacterName() == player.getCharacterName()) ? player : opponent;
+		
+		return fighterToTakeDamage instanceof Player ? player : opponent;
 	}
 	
 	/** Private method to comapare rolls and return the loser
@@ -112,7 +113,7 @@ public class Round {
 	}
 
 
-	/** setter for fieldd opponent
+	/** setter for field opponent
 	 * @param Character oopponent
 	 */
 	private void setOpponent(Character opponent) {

@@ -2,7 +2,7 @@ package lexicon.se.henric.battle_arena;
 
 import java.util.Random;
 
-import lexicon.se.henric.battle_arena.model.BattleLog;
+//import lexicon.se.henric.battle_arena.model.BattleLog;
 
 /**
  * Required Features:

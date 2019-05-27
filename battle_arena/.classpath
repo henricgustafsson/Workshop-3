@@ -23,10 +23,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="lib/roman-name-generator.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="file:/C:/Users/Nellie/Desktop/H%20plugg/mob-arena-fighter/roman-jar-generator/"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="lib/roman-name-generator.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
