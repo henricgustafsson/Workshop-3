@@ -4,7 +4,6 @@ package lexicon.se.henric.battle_arena.model;
 public class Player extends Character{
 
 	
-	@SuppressWarnings("unused")
 	private int battlesWon;
 	
 	public Player(String characterName, double strength, double health) {

@@ -54,7 +54,9 @@ public class Character {
 	 * @return void
 	 */
 	private void setStrength(double strength) {
-		this.strength = strength;
+		if(!Double.isNaN(strength)) {
+			this.strength = strength;
+		}
 	}
 	
 	/** Get method for field health
@@ -68,7 +70,9 @@ public class Character {
 	 * @return void
 	 */
 	private void setHealth(double health) {
-		this.health = health;
+		if(!Double.isNaN(health)) {
+			this.health = health;
+		}		
 	}
 	
 	/** Get method for field characterName

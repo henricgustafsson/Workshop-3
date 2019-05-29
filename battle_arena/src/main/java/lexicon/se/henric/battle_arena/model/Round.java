@@ -30,7 +30,7 @@ public class Round {
 		//set player and opponent from params
 		setPlayer(player);
 		setOpponent(opponent);
-		startRound();
+		
 	}
 	
 	/** Private method to roll for player and opponent
@@ -39,11 +39,11 @@ public class Round {
 	 * and deal damage to looser. Determines winner and sets
 	 * field rollWinner with setter.
 	 */
-	private void startRound(){
+	public void startRound(){
+		
 		//Roll and save roll for characters in fields
 		setPlayerRoll(roll());
-		setOpponentRoll(roll());
-		
+		setOpponentRoll(roll());		
 		//Add strength of characters roll to character's strength
 		player.addStrength(playerRoll);
 		opponent.addStrength(opponentRoll);

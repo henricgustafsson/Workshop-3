@@ -14,24 +14,53 @@ public class App
 	public static final Scanner scanner = new Scanner(System.in);
 	private static final Random rand = new Random();
 	private static Battle battle;
+	
     public static void main( String[] args )
     {
-    	System.out.println("Enter Name:");
-    	String playerName = scanner.nextLine();
-    	System.out.println("Enter health:");
-    	int health = scanner.nextInt();
-    	scanner.nextLine();
-    	System.out.println("Enter Strength:");
-    	int strength = scanner.nextInt();
-    	scanner.nextLine();
-    	Player player = new Player(playerName,strength,health);
+    	boolean playerWantsToContinue =true;
+    	String playerName=null;
+    	double health=0;
+    	double strength=0;
+    	boolean validInput =true;
+    	
+    	do {
+			try {
+				System.out.println("Enter Name:");
+				playerName = scanner.nextLine();
+				System.out.println("Enter health:");
+				health = scanner.nextDouble();
+				System.out.println("Enter Strength:");
+				strength = scanner.nextDouble();
+				scanner.nextLine();
+				
+			} catch (Exception e) {
+				System.out.println("Please enter health and strength as numbers!");
+				validInput = false;
+				scanner.nextLine();
+			} 
+			
+		} while (!validInput);
+    	
+		StringBuilder stringbuilder = new StringBuilder();
+
+		Player player = new Player(playerName,strength,health);
     	do {
 			
     		battle = new Battle(player);
-    		
+    		battle.startBattle();
+    		//System.out.println(battle.toString());
+    		stringbuilder.append(battle.toString());
+    		System.out.println("Do you want to continue?");
+        	String userInput = scanner.nextLine();
+        	playerWantsToContinue = userInput.compareToIgnoreCase("y")==0? true:false; 
+        	if(!playerWantsToContinue) break;
+        	
 		} while (!player.isDead());
+    
+		
+		System.out.println(stringbuilder.toString());
+		System.out.println("Your Score"+player.calculateScore());
     	
-    	System.out.println(battle.toString());
     	
     }
     

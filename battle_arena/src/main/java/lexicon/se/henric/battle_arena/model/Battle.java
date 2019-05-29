@@ -24,16 +24,14 @@ public class Battle {
 		setPlayer(player); 
 		this.rounds = new ArrayList<Round>();
 		this.romanNameGenerator = new RomanNameGenerator();
-		Character opponent =CreateOpponent();
-		setOpponent(opponent);
-		battle();
+		
 	}
 	
 	/** private method for starting round
 	 *  initiates a new Round object
 	 * @return
 	 */
-	private Round startRound() {
+	private Round newRound() {
 		
 		return new Round(player, opponent);
 		
@@ -45,24 +43,30 @@ public class Battle {
 	 *  and adds it to Player. Determines winner and sets
 	 *  field BattleWinner with setter.
 	 */
-	public void battle() {
+	public void startBattle() {
 			
-			do {
-				//start round
-				Round round = startRound();
-				//add round to list of rounds
-				rounds.add(round);
-			} while (!player.isDead());
+		
+				do {
+					//create new opponent
+					Character opponent = CreateOpponent();
+					setOpponent(opponent);
+					//start round
+					Round round = newRound();
+					round.startRound();
+					//add round to list of rounds
+					rounds.add(round);
+					Character winner = determineWinner();
+					//if the winning character is an instance of player
+					//the player has won. Count up field battlesWon
+					//using addToBattlesWon method
+					if (winner instanceof Player) {
+						((Player) winner).addToBattlesWon();
+					}
+					setBattleWinner(winner);
+				} while (!player.isDead() && !opponent.isDead());
+	
 			
 			
-			Character winner = determineWinner();
-			//if the winning character is an instance of player
-			//the player has won. Count up field battlesWon
-			//using addToBattlesWon method
-			if(winner instanceof Player) {
-				((Player) winner).addToBattlesWon();
-			}
-			setBattleWinner(winner);
 	}
 	
 	/** private method for determing winner
@@ -139,15 +143,15 @@ public class Battle {
 		stringBuilder.append("Player Name: "+player.getCharacterName());
 		stringBuilder.append("\nOpponent Name: "+opponent.getCharacterName());
 		stringBuilder.append("\nBattle Winner: " + getBattleWinner().getCharacterName());		
-		/*int i =0;
+		int i =0;
 		while (i <rounds.size()) {
 			
 			Round round = rounds.get(i);
 			
-			stringBuilder.append("Round "+i+1+"\n");
+			stringBuilder.append("\nRound "+(i+1)+"\n");
 			stringBuilder.append(round.toString());
 			++i;
-		} */
+		} 
 		
 		return stringBuilder.toString();
 	}
